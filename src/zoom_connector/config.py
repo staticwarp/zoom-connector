@@ -13,10 +13,17 @@ load_dotenv()
 
 class ZoomConfig(BaseModel):
     """Zoom API configuration."""
-    client_id: str = os.getenv("ZOOM_CLIENT_ID", "")
-    client_secret: str = os.getenv("ZOOM_CLIENT_SECRET", "")
+    # For OAuth flow - just need the App ID
+    app_id: str = os.getenv("ZOOM_APP_ID", "")
+    
+    # Optional: Client secret if not using pure OAuth flow
+    client_secret: Optional[str] = os.getenv("ZOOM_CLIENT_SECRET", "")
+    
     redirect_uri: str = os.getenv("ZOOM_REDIRECT_URI", "http://localhost:8000/oauth/callback")
-    account_id: Optional[str] = os.getenv("ZOOM_ACCOUNT_ID", "")  # For Server-to-Server OAuth
+    
+    # OAuth settings
+    oauth_url: str = "https://zoom.us/oauth/authorize"
+    token_url: str = "https://zoom.us/oauth/token"
 
 
 class OpenClawConfig(BaseModel):
