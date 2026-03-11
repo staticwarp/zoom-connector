@@ -1,0 +1,9 @@
+{
+  "id": "zoom",
+  "channels": ["zoom"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

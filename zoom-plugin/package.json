@@ -1,0 +1,35 @@
+{
+  "name": "@openclaw/zoom",
+  "version": "1.0.0",
+  "description": "OpenClaw Zoom Team Chat channel plugin",
+  "type": "module",
+  "main": "index.ts",
+  "dependencies": {
+    "@zoom/rivet": "^0.4.0"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.1.0"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "channel": {
+      "id": "zoom",
+      "label": "Zoom Team Chat",
+      "selectionLabel": "Zoom Team Chat (Chatbot)",
+      "docsPath": "/channels/zoom",
+      "docsLabel": "zoom",
+      "blurb": "Connect Zoom Team Chat to OpenClaw via Zoom Rivet chatbot.",
+      "aliases": [
+        "zoom-chat"
+      ],
+      "order": 70
+    },
+    "install": {
+      "npmSpec": "@openclaw/zoom",
+      "localPath": "zoom-plugin",
+      "defaultChoice": "npm"
+    }
+  }
+}
